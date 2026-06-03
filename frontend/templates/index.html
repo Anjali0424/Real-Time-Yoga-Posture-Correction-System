@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>YogaMaster - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Apply theme immediately before page renders -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem("theme") || "light";
+            if (theme === "dark") {
+                document.documentElement.style.backgroundColor = "#121212";
+                document.documentElement.style.color = "#e0e0e0";
+                document.body.classList.add("dark");
+            }
+        })();
+    </script>
+</head>
+
+<body>
+
+    <!-- ✅ Use shared Navbar template -->
+    {% include 'navbar.html' %}
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video autoplay muted loop id="bgVideo">
+            <source src="/assets/yoga-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>Transform Your Life Through Yoga</h1>
+            <p>Discover inner peace and physical wellness with our AI-powered yoga assistant</p>
+            <button id="getStartedBtn" class="cta-button">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <h2>Why Choose YogaMaster?</h2>
+            <div class="features-grid">
+
+                <!-- 🔄 Feature 1 UPDATED -->
+                <div class="feature-card">
+                    <div class="feature-icon">🎥</div>
+                    <h3>Real-Time Posture Feedback</h3>
+                    <p>Instant feedback helps users identify and correct posture mistakes during yoga practice.</p>
+                </div>
+
+                <!-- ✅ Feature 2 UNCHANGED -->
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Progress Tracking</h3>
+                    <p>Monitor your improvement with detailed analytics</p>
+                </div>
+
+                <!-- 🔄 Feature 3 UPDATED -->
+                <div class="feature-card">
+                    <div class="feature-icon">🔊</div>
+                    <h3>Voice-Guided Practice</h3>
+                    <p>Clear voice instructions guide users step-by-step through each yoga pose.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+
+                <div class="footer-section">
+                    <h3>YogaMaster</h3>
+                    <p>Your personal AI yoga assistant</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/poses">Poses</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 YogaMaster. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JS -->
+    <script src="/js/script.js"></script>
+
+    <!-- Get Started Logic -->
+    <script>
+        document.getElementById("getStartedBtn").addEventListener("click", function () {
+            window.location.href = "/poses";
+        });
+    </script>
+
+</body>
+</html>
