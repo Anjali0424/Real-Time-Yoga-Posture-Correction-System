@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - YogaMaster</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Apply theme immediately before page renders -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem("theme") || "light";
+            if (theme === "dark") {
+                document.documentElement.style.backgroundColor = "#121212";
+                document.documentElement.style.color = "#e0e0e0";
+                document.body.classList.add("dark");
+            }
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- ✅ Use shared Navbar template -->
+    {% include 'navbar.html' %}
+
+    <section class="about-hero">
+        <div class="container">
+            <h1>About YogaMaster</h1>
+            <p>Revolutionizing yoga practice through technology</p>
+        </div>
+    </section>
+
+    <section class="about-content">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Our Mission</h2>
+                    <p>YogaMaster is designed to help users practice yoga effectively by integrating classical yoga principles with digital guidance. The system supports posture correction, step-by-step instructions, and personalized practice to enhance overall wellness.</p>
+                    
+                    <h2>What We Offer</h2>
+                    <ul>
+                        <li>Live Yoga Pose Detection</li>
+                        <li>Personalized yoga routines</li>
+                        <li>Progress tracking and analytics</li>
+                        <li>Multi-language support</li>
+                        <li>Real-time feedback during practice</li>
+                    </ul>
+                </div>
+                
+                <div class="about-features">
+                    <div class="feature-item">
+                        <h3>🏆 Excellence</h3>
+                        <p>We aim to provide a smooth, reliable, and high-quality experience for all users.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>❤️ Compassion</h3>
+                        <p>Users are supported in a comfortable and encouraging environment..</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>🚀 Innovation</h3>
+                        <p>Continuously improving through technology and user feedback.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>YogaMaster</h3>
+                    <p>Your personal yoga assistant</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/poses">Poses</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 YogaMaster. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+   <script src="/js/script.js"></script>
+</body>
+</html>

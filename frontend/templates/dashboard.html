@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - YogaMaster</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Apply theme immediately before page renders -->
+    <script>
+        (function () {
+            const theme = localStorage.getItem("theme") || "light";
+            if (theme === "dark") {
+                document.documentElement.style.backgroundColor = "#121212";
+                document.documentElement.style.color = "#e0e0e0";
+                document.body.classList.add("dark");
+            }
+        })();
+    </script>
+</head>
+
+<body>
+
+    <!-- ✅ Use shared Navbar template -->
+    {% include 'navbar.html' %}
+
+    <section class="dashboard-section">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Your Yoga Journey</h1>
+                <p>Welcome back, {{ user.username }}! Here's your progress overview.</p>
+
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card primary">
+                    <div class="stat-icon">🔥</div>
+                    <div class="stat-info">
+                        <h3 id="streakDays">0</h3>
+                        <p>Current Streak</p>
+                    </div>
+                </div>
+                <div class="stat-card success">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <h3 id="avgAccuracy">0%</h3>
+                        <p>Average Accuracy</p>
+                    </div>
+                </div>
+                <div class="stat-card warning">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-info">
+                        <h3 id="totalSessions">0</h3>
+                        <p>Total Sessions</p>
+                    </div>
+                </div>
+                <div class="stat-card info">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-info">
+                        <h3 id="uniquePoses">0</h3>
+                        <p>Poses Practiced</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="chart-section profile-section">
+
+                    <div class="profile-card-dashboard">
+
+                        {% if user.profile_image %}
+                        <img src="{{ url_for('static', filename='uploads/' + user.profile_image) }}"
+                            class="dashboard-profile-pic" alt="Profile Picture">
+                        {% else %}
+                        <img src="{{ url_for('static', filename='uploads/default.png') }}" class="dashboard-profile-pic"
+                            alt="Default Profile Picture">
+                        {% endif %}
+
+                        <h2 class="dashboard-username">
+                            {{ user.username }}
+                        </h2>
+
+                        <p class="dashboard-bio">
+                            {{ user.bio if user.bio else "Yoga enthusiast 🌿 practicing mindfulness every day." }}
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="recent-sessions">
+                    <h2>Recent Sessions</h2>
+                    <div class="sessions-list" id="sessionsList">
+                        <p style="text-align: center; color: #999;">Loading sessions...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FIXED ROUTES -->
+            <div class="quick-actions">
+                <h2>Quick Actions</h2>
+                <div class="action-buttons">
+                    <a href="/poses" class="action-btn">Browse Poses</a>
+                    <a href="/practice" class="action-btn primary">Start New Session</a>
+                    <a href="/settings" class="action-btn">Update Settings</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>YogaMaster</h3>
+                    <p>Your personal AI yoga assistant</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/poses">Poses</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 YogaMaster. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+
+    <!-- Dashboard Analytics Script -->
+    <script>
+        async function loadDashboardData() {
+            try {
+                const response = await fetch('/user_stats');
+                const data = await response.json();
+
+                // Update stats
+                document.getElementById('streakDays').textContent = data.current_streak + ' Days';
+                document.getElementById('avgAccuracy').textContent = Math.round(data.avg_accuracy) + '%';
+                document.getElementById('totalSessions').textContent = data.total_sessions;
+                document.getElementById('uniquePoses').textContent = data.unique_poses;
+
+                // Populate recent sessions
+                const sessionsList = document.getElementById('sessionsList');
+
+                if (data.recent_sessions && data.recent_sessions.length > 0) {
+                    sessionsList.innerHTML = '';
+                    data.recent_sessions.forEach(session => {
+                        const duration_minutes = Math.round(session.duration / 60);
+                        const html = `
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <h4>${session.pose_name}</h4>
+                                    <p>${session.formatted_time}</p>
+                                </div>
+                                <div class="session-stats">
+                                    <span class="accuracy">${session.accuracy || 'N/A'}%</span>
+                                    <span class="duration">${duration_minutes} min</span>
+                                </div>
+                            </div>
+                        `;
+                        sessionsList.innerHTML += html;
+                    });
+                } else {
+                    sessionsList.innerHTML = '<p style="text-align: center; color: #999;">No sessions yet. Start practicing!</p>';
+                }
+            } catch (error) {
+                console.error('Error loading dashboard data:', error);
+                document.getElementById('sessionsList').innerHTML = '<p style="text-align: center; color: red;">Error loading sessions</p>';
+            }
+        }
+
+        // Load data when page loads
+        window.addEventListener('DOMContentLoaded', loadDashboardData);
+    </script>
+</body>
+
+</html>

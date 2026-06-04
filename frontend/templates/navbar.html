@@ -1,0 +1,77 @@
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <h2>YogaMaster</h2>
+        </div>
+
+        <ul class="nav-menu">
+
+            <!-- Correct Home URL -->
+            <li><a href="/" class="{{ 'active' if request.path == '/' else '' }}">Home</a></li>
+
+            {% if session.get('user_id') %}
+                <!-- IF USER LOGGED IN -->
+                <li><a href="/poses">Poses</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/settings">Settings</a></li>
+                <li><a href="/about">About Us</a></li>
+               <li><a href="#" id="logoutBtn">Logout</a></li> 
+
+            {% else %}
+                <!-- IF USER NOT LOGGED IN -->
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+                <li><a href="/settings">Settings</a></li>
+                <li><a href="/about">About Us</a></li>
+            {% endif %}
+
+        </ul>
+
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- GLOBAL THEME LOADER - Applies saved theme on every page -->
+<script>
+    async function applyGlobalTheme() {
+        let theme = "light";
+        
+        try {
+            // Try to fetch theme from backend first
+            const response = await fetch('/get_settings');
+            if (response.ok) {
+                const data = await response.json();
+                theme = data.theme || "light";
+            }
+        } catch (error) {
+            // Fallback to localStorage if backend fails
+            theme = localStorage.getItem("theme") || "light";
+        }
+        
+        applyThemeClass(theme);
+    }
+
+    function applyThemeClass(theme) {
+        // Remove any existing dark class first
+        document.body.classList.remove("dark");
+        
+        if (theme === "auto") {
+            const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            if (systemDark) {
+                document.body.classList.add("dark");
+            }
+        } 
+        else if (theme === "dark") {
+            document.body.classList.add("dark");
+        }
+    }
+
+    // Apply theme immediately and also after DOM is loaded
+    applyGlobalTheme();
+    document.addEventListener('DOMContentLoaded', applyGlobalTheme);
+    
+    // Also check theme periodically (every 2 seconds) to sync changes
+    setInterval(applyGlobalTheme, 2000);
+</script>

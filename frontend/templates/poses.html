@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yoga Poses - YogaMaster</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Your Main CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <!-- Apply theme immediately before page renders -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem("theme") || "light";
+            if (theme === "dark") {
+                document.documentElement.style.backgroundColor = "#121212";
+                document.documentElement.style.color = "#e0e0e0";
+                document.body.classList.add("dark");
+            }
+        })();
+    </script>
+
+    <style>
+        .pose-card {
+            height: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .pose-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,.2);
+        }
+        .pose-card img {
+            height: 220px;
+            object-fit: cover;
+        }
+        .difficulty {
+            padding: 4px 10px;
+            border-radius: 20px;
+            color: white;
+            font-size: 12px;
+        }
+        .beginner { background: green; }
+        .intermediate { background: orange; }
+    </style>
+</head>
+<body>
+
+<!-- ✅ Use shared Navbar template -->
+{% include 'navbar.html' %}
+
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Yoga Poses</h2>
+
+        <div class="d-flex gap-3 mb-4">
+            <input type="text" id="searchPoses" class="form-control" placeholder="Search poses">
+            <select id="difficultyFilter" class="form-select">
+                <option value="">All</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+            </select>
+        </div>
+
+        <div class="row g-4" id="posesGrid"></div>
+    </div>
+</section>
+
+<script>
+const poses = [
+ { id:1,name:'Cobra Pose',difficulty:'beginner',image:'/assets/images/cobra_pose.jpg',description:'Gentle backbend'},
+ { id:2,name:'Bow Pose',difficulty:'intermediate',image:'/assets/images/bow_pose.jpg',description:'Backbend'},
+ { id:3,name:'Downward Dog',difficulty:'beginner',image:'/assets/images/downworddog_pose.jpg',description:'Inversion'},
+ { id:4,name:'Bridge Pose',difficulty:'intermediate',image:'/assets/images/bridge_pose.jpg',description:'Hip opener'},
+ { id:5,name:'Plank Pose',difficulty:'beginner',image:'/assets/images/plank_pose.jpg',description:'Core strength'},
+ { id:6,name:'Child Pose',difficulty:'beginner',image:'/assets/images/Child-Pose.jpg',description:'Relaxation'},
+ { id:7,name:'Mountain Pose',difficulty:'beginner',image:'/assets/images/mountain_pose.jpg',description:'Foundation'},
+ { id:8,name:'Warrior I',difficulty:'intermediate',image:'/assets/images/warrior1_pose.jpg',description:'Strength'},
+ { id:9,name:'Warrior II',difficulty:'intermediate',image:'/assets/images/warrior2_pose.jpg',description:'Balance'},
+ { id:10,name:'Warrior III',difficulty:'intermediate',image:'/assets/images/warrior3_pose.jpg',description:'Balance'},
+ { id:11,name:'Tree Pose',difficulty:'beginner',image:'/assets/images/tree_pose.jpg',description:'Balance'},
+ { id:12,name:'Lotus Pose',difficulty:'intermediate',image:'/assets/images/lotus_pose.jpg',description:'Meditation'},
+ { id:13,name:'Cat Cow',difficulty:'beginner',image:'/assets/images/cat_cow_pose.jpg',description:'Flexibility'},
+ { id:14,name:'Seated Forward Bend',difficulty:'beginner',image:'/assets/images/seat_bend_pose.jpg',description:'Stretch'},
+ { id:15,name:'Triangle Pose',difficulty:'intermediate',image:'/assets/images/triangle_pose.jpg',description:'Stretch'},
+ { id:16,name:'Boat Pose',difficulty:'intermediate',image:'/assets/images/boat_pose.jpg',description:'Core'},
+ { id:17,name:'Chair Pose',difficulty:'beginner',image:'/assets/images/chair_pose.jpg',description:'Legs'},
+ { id:18,name:'Corpse Pose',difficulty:'beginner',image:'/assets/images/corpse_pose.jpg',description:'Relax'},
+ { id:19,name:'Hero Pose',difficulty:'beginner',image:'/assets/images/hero_s_pose.jpg',description:'Kneeling'},
+ { id:20,name:'Reverse Warrior',difficulty:'intermediate',image:'/assets/images/resverse_warrior_pose.jpg',description:'Side stretch'},
+ { id:21,name:'Camel Pose',difficulty:'intermediate',image:'/assets/images/camel_pose.jpg',description:'Backbend'},
+ { id:22,name:'Easy Pose',difficulty:'beginner',image:'/assets/images/easy_pose.jpg',description:'Meditation'}
+];
+
+const posesGrid = document.getElementById("posesGrid");
+const searchInput = document.getElementById("searchPoses");
+const difficultyFilter = document.getElementById("difficultyFilter");
+
+function renderPoses(list){
+ posesGrid.innerHTML = list.map(p=>`
+  <div class="col-lg-3 col-md-4 col-sm-6">
+   <div class="card pose-card" onclick="goToPractice('${p.name}','${p.image}')">
+    <img src="${p.image}" class="card-img-top">
+    <div class="card-body text-center">
+     <h5>${p.name}</h5>
+     <p>${p.description}</p>
+     <span class="difficulty ${p.difficulty}">${p.difficulty}</span>
+    </div>
+   </div>
+  </div>
+ `).join("");
+}
+
+function filterPoses(){
+ const val = searchInput.value.toLowerCase();
+ const level = difficultyFilter.value;
+ const filtered = poses.filter(p =>
+  p.name.toLowerCase().includes(val) &&
+  (!level || p.difficulty===level)
+ );
+ renderPoses(filtered);
+}
+
+function goToPractice(name,image){
+ localStorage.setItem("poseName", name);
+ localStorage.setItem("poseImage", image);
+ window.location.href = "/pose_detail";   // fixed route
+}
+
+renderPoses(poses);
+searchInput.oninput = filterPoses;
+difficultyFilter.onchange = filterPoses;
+</script>
+
+</body>
+</html>

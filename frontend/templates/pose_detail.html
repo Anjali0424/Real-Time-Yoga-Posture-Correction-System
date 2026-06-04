@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pose Detail - YogaMaster</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    {% include 'navbar.html' %}
+
+    <section class="pose-detail-section">
+        <div class="container">
+
+            <!-- HEADER -->
+            <div class="pose-detail-header">
+                <div class="pose-image">
+                    <img id="poseImg" src="https://via.placeholder.com/400x300/4CAF50/white?text=Yoga+Pose"
+                        alt="Yoga Pose">
+                </div>
+
+                <div class="pose-info">
+                    <h1 id="poseTitle">Yoga Pose</h1>
+
+                    <div class="pose-meta">
+                        <span class="difficulty beginner" id="poseDifficulty">Beginner</span>
+                        <span class="duration" id="poseDuration">⏱️ 1–2 minutes</span>
+                    </div>
+
+                    <!-- ✅ LONG DESCRIPTION -->
+                    <p class="pose-description" id="poseDescription">
+                        This yoga pose helps improve posture, balance, and overall body awareness.
+                        It is suitable for beginners and can be practiced daily to build strength
+                        and mindfulness.
+                    </p>
+
+                    <a href="/practice" class="practice-button">Start Practice</a>
+                </div>
+            </div>
+
+            <!-- BENEFITS ONLY -->
+            <div class="pose-content">
+                <div class="benefits-section">
+                    <h2>Benefits</h2>
+                    <ul class="benefits-list" id="benefitsList">
+                        <li>Improves posture</li>
+                        <li>Increases balance</li>
+                        <li>Strengthens muscles</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+
+                <div class="footer-section">
+                    <h3>YogaMaster</h3>
+                    <p>Your personal AI yoga assistant</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/poses">Poses</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 YogaMaster. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="/js/script.js"></script>
+
+    <!-- ✅ DYNAMIC DATA -->
+    <script>
+        const poseName = localStorage.getItem("poseName");
+        const poseImage = localStorage.getItem("poseImage");
+
+        const poseData =
+         {
+            "Mountain Pose": {
+                description: "Mountain Pose is a foundational standing posture that teaches correct alignment and improves posture. It creates body awareness and prepares the body for other poses.",
+                duration: "⏱️ 1–2 minutes",
+                benefits: [
+                    "Improves posture",
+                    "Enhances balance",
+                    "Strengthens legs",
+                    "Improves breathing awareness",
+                    "Builds body alignment"
+                ]
+            },
+
+            "Tree Pose": {
+                description: "Tree Pose is a balancing posture that strengthens the legs and improves concentration. It helps develop stability, patience, and mental focus.",
+                duration: "⏱️ 30–60 seconds",
+                benefits: [
+                    "Improves balance",
+                    "Strengthens legs and ankles",
+                    "Enhances concentration",
+                    "Improves posture",
+                    "Calms the mind"
+                ]
+            },
+
+            "Chair Pose": {
+                description: "Chair Pose is a powerful standing posture that builds strength and endurance in the legs and core while increasing stamina.",
+                duration: "⏱️ 30–45 seconds",
+                benefits: [
+                    "Strengthens thighs and hips",
+                    "Builds stamina",
+                    "Tones core muscles",
+                    "Improves balance",
+                    "Increases body heat"
+                ]
+            },
+
+            "Warrior I": {
+                description: "Warrior I is a strong standing pose that builds confidence and strength while opening the chest and shoulders.",
+                duration: "⏱️ 30–60 seconds per side",
+                benefits: [
+                    "Strengthens legs and arms",
+                    "Improves stamina",
+                    "Opens chest and lungs",
+                    "Boosts confidence",
+                    "Improves focus"
+                ]
+            },
+
+            "Warrior II": {
+                description: "Warrior II is a grounding pose that increases strength, stability, and endurance while improving concentration.",
+                duration: "⏱️ 30–60 seconds per side",
+                benefits: [
+                    "Strengthens legs and arms",
+                    "Improves endurance",
+                    "Enhances focus",
+                    "Improves balance",
+                    "Builds stability"
+                ]
+            },
+
+            "Warrior III": {
+                description: "Warrior III is an advanced balancing posture that strengthens the entire body and improves coordination and focus.",
+                duration: "⏱️ 20–40 seconds per side",
+                benefits: [
+                    "Improves balance",
+                    "Strengthens legs and core",
+                    "Enhances coordination",
+                    "Improves posture",
+                    "Builds concentration"
+                ]
+            },
+
+            "Lotus Pose": {
+                description: "Lotus Pose is a traditional seated meditation posture that promotes calmness and mental clarity.",
+                duration: "⏱️ 1–5 minutes",
+                benefits: [
+                    "Calms the mind",
+                    "Improves posture",
+                    "Enhances meditation",
+                    "Increases hip flexibility",
+                    "Promotes inner peace"
+                ]
+            },
+
+            "Cobra Pose": {
+                description: "Cobra Pose is a gentle backbend that strengthens the spine and opens the chest, improving posture and flexibility.",
+                duration: "⏱️ 15–30 seconds",
+                benefits: [
+                    "Strengthens spine",
+                    "Opens chest and shoulders",
+                    "Improves posture",
+                    "Relieves back stiffness",
+                    "Reduces stress"
+                ]
+            },
+
+            "Child Pose": {
+                description: "Child Pose is a resting posture that relaxes the body and calms the nervous system.",
+                duration: "⏱️ 30–90 seconds",
+                benefits: [
+                    "Relieves stress",
+                    "Stretches back and hips",
+                    "Calms the mind",
+                    "Relaxes the body",
+                    "Improves breathing"
+                ]
+            },
+
+            "Bow Pose": {
+                description: "Bow Pose is a deep backbend that strengthens the back muscles and improves flexibility.",
+                duration: "⏱️ 15–30 seconds",
+                benefits: [
+                    "Strengthens back muscles",
+                    "Improves spinal flexibility",
+                    "Opens chest",
+                    "Improves digestion",
+                    "Boosts energy"
+                ]
+            },
+
+            "Downward Dog": {
+                description: "Downward Dog is a full-body stretch that improves circulation, flexibility, and strength.",
+                duration: "⏱️ 30–60 seconds",
+                benefits: [
+                    "Stretches whole body",
+                    "Strengthens arms and legs",
+                    "Improves circulation",
+                    "Relieves fatigue",
+                    "Calms the mind"
+                ]
+            },
+
+            "Bridge Pose": {
+                description: "Bridge Pose strengthens the back and glutes while opening the chest and improving spinal flexibility.",
+                duration: "⏱️ 30–60 seconds",
+                benefits: [
+                    "Strengthens back and legs",
+                    "Opens chest",
+                    "Improves spine flexibility",
+                    "Reduces stress",
+                    "Improves posture"
+                ]
+            },
+
+            "Plank Pose": {
+                description: "Plank Pose builds core strength and stability while improving posture and endurance.",
+                duration: "⏱️ 20–60 seconds",
+                benefits: [
+                    "Strengthens core",
+                    "Improves posture",
+                    "Builds endurance",
+                    "Strengthens arms",
+                    "Enhances stability"
+                ]
+            },
+
+            "Cat Cow": {
+                description: "Cat-Cow Pose improves spinal flexibility and relieves tension by gently moving the spine.",
+                duration: "⏱️ 30–60 seconds",
+                benefits: [
+                    "Improves spine flexibility",
+                    "Relieves back tension",
+                    "Improves posture",
+                    "Enhances breathing",
+                    "Reduces stress"
+                ]
+            },
+
+            "Seated Forward Bend": {
+                description: "Seated Forward Bend is a calming stretch that lengthens the spine and hamstrings.",
+                duration: "⏱️ 30–90 seconds",
+                benefits: [
+                    "Stretches hamstrings",
+                    "Calms the mind",
+                    "Improves flexibility",
+                    "Relieves stress",
+                    "Improves digestion"
+                ]
+            },
+
+            "Triangle Pose": {
+                description: "Triangle Pose is a standing stretch that improves balance and flexibility while strengthening the legs.",
+                duration: "⏱️ 30–60 seconds per side",
+                benefits: [
+                    "Stretches side body",
+                    "Improves balance",
+                    "Strengthens legs",
+                    "Improves posture",
+                    "Enhances stability"
+                ]
+            },
+
+            "Boat Pose": {
+                description: "Boat Pose strengthens the core and improves balance and body control.",
+                duration: "⏱️ 20–40 seconds",
+                benefits: [
+                    "Strengthens core",
+                    "Improves balance",
+                    "Enhances focus",
+                    "Improves digestion",
+                    "Builds endurance"
+                ]
+            },
+
+            "Corpse Pose": {
+                description: "Corpse Pose is a relaxation posture that allows the body and mind to fully rest and recover.",
+                duration: "⏱️ 5–10 minutes",
+                benefits: [
+                    "Deep relaxation",
+                    "Reduces stress",
+                    "Calms nervous system",
+                    "Improves sleep",
+                    "Promotes mindfulness"
+                ]
+            },
+
+            "Hero Pose": {
+                description: "Hero Pose is a seated posture that improves posture and aids digestion.",
+                duration: "⏱️ 1–3 minutes",
+                benefits: [
+                    "Improves posture",
+                    "Aids digestion",
+                    "Stretches thighs",
+                    "Calms the mind",
+                    "Enhances breathing"
+                ]
+            },
+
+            "Reverse Warrior": {
+                description: "Reverse Warrior is a dynamic standing pose that stretches the side body while strengthening the legs.",
+                duration: "⏱️ 20–40 seconds per side",
+                benefits: [
+                    "Stretches side body",
+                    "Strengthens legs",
+                    "Improves balance",
+                    "Enhances flexibility",
+                    "Boosts energy"
+                ]
+            }
+
+        }
+        ;
+
+        if (poseName) {
+            document.getElementById("poseTitle").innerText = poseName;
+            document.title = poseName + " - YogaMaster";
+
+            if (poseData[poseName]) {
+                document.getElementById("poseDescription").innerText =
+                    poseData[poseName].description;
+
+                document.getElementById("poseDuration").innerText =
+                    poseData[poseName].duration;
+
+                const benefitsList = document.getElementById("benefitsList");
+                benefitsList.innerHTML = "";
+
+                poseData[poseName].benefits.forEach(b => {
+                    const li = document.createElement("li");
+                    li.innerText = b;
+                    benefitsList.appendChild(li);
+                });
+            }
+        }
+
+        if (poseImage) {
+            document.getElementById("poseImg").src = poseImage;
+        }
+    </script>
+
+</body>
+
+</html>
