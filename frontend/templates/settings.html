@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - YogaMaster</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <section class="settings-section">
+        <div class="container">
+            <h1>Settings</h1>
+
+            <div class="settings-grid">
+
+                <div class="settings-card">
+                    <h3>Profile Settings</h3>
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label for="userName">Full Name</label>
+                            <input type="text" id="userName" name="userName">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userEmail">Email</label>
+                            <input type="email" id="userEmail" name="userEmail">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="settings-card">
+                    <h3>Preferences</h3>
+
+                    <div class="form-group">
+                        <label for="language">Language</label>
+                        <select id="language">
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="hi">Hindi</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="theme">Theme</label>
+                        <select id="theme">
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                            <option value="auto">Auto</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="muteSound">
+                        <label for="muteSound">Mute sound during practice</label>
+                    </div>
+                </div>
+
+                <div class="settings-card">
+                    <h3>Practice Settings</h3>
+
+                    <div class="form-group">
+                        <label for="difficulty">Difficulty Level</label>
+                        <select id="difficulty">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sessionLength">Session Length</label>
+                        <select id="sessionLength">
+                            <option value="15">15 minutes</option>
+                            <option value="30">30 minutes</option>
+                            <option value="45">45 minutes</option>
+                            <option value="60">60 minutes</option>
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="settings-actions">
+                <button id="saveSettings" class="save-button">Save Settings</button>
+                <button id="resetSettings" class="reset-button">Reset to Default</button>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>YogaMaster</h3>
+                    <p>Your personal AI yoga assistant</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/poses">Poses</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 YogaMaster. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+
+    <script>
+/* ================================
+   PROFILE BACKEND LOGIC
+   (NO THEME TOUCHED)
+================================ */
+
+// Load profile from backend
+async function loadProfile() {
+    try {
+        const res = await fetch("/get_profile");
+        const data = await res.json();
+
+        document.getElementById("userName").value = data.name || "";
+        document.getElementById("userEmail").value = data.email || "";
+
+    } catch (err) {
+        console.log("Profile backend not available");
+    }
+}
+
+// Save profile to backend
+async function saveProfile() {
+    const profileData = {
+        name: document.getElementById("userName").value,
+        email: document.getElementById("userEmail").value
+    };
+
+    try {
+        const res = await fetch("/save_profile", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(profileData)
+        });
+
+        const result = await res.json();
+        if (result.status === "success") {
+            alert("✅ Profile Updated Successfully");
+        } else {
+            alert("❌ Failed to save profile");
+        }
+
+    } catch (err) {
+        alert("❌ Backend error while saving profile");
+    }
+}
+
+// Attach save with existing Save button
+document.getElementById("saveSettings").addEventListener("click", () => {
+    saveProfile();
+});
+
+// Load profile on page load
+window.addEventListener("DOMContentLoaded", loadProfile);
+</script>
+
+    <!-- THEME + SETTINGS LOGIC -->
+    <script>
+        // ------------------------
+        // Apply Theme
+        // ------------------------
+        function applyTheme(theme) {
+            if (theme === "auto") {
+                const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                document.body.classList.toggle("dark", systemDark);
+            } 
+            else if (theme === "dark") {
+                document.body.classList.add("dark");
+            } 
+            else {
+                document.body.classList.remove("dark");
+            }
+        }
+
+        // Load settings from backend AND localStorage
+        async function loadSettings() {
+            try {
+                // Try to fetch from backend first
+                const response = await fetch('/get_settings');
+                const data = await response.json();
+                
+                // Set form values from backend
+                document.getElementById("language").value = data.language || "en";
+                let savedTheme = data.theme || "light";
+                document.getElementById("theme").value = savedTheme;
+                document.getElementById("difficulty").value = data.difficulty || "beginner";
+                document.getElementById("sessionLength").value = data.session_length || 15;
+                document.getElementById("muteSound").checked = data.mute_sound || false;
+                
+                applyTheme(savedTheme);
+            } catch (error) {
+                console.log("Backend not available, using localStorage defaults");
+                // Fallback to localStorage
+                document.getElementById("language").value =
+                    localStorage.getItem("language") || "en";
+
+                let savedTheme = localStorage.getItem("theme") || "light";
+                document.getElementById("theme").value = savedTheme;
+                applyTheme(savedTheme);
+
+                document.getElementById("difficulty").value =
+                    localStorage.getItem("difficulty") || "beginner";
+
+                document.getElementById("sessionLength").value =
+                    localStorage.getItem("sessionLength") || "15";
+
+                document.getElementById("muteSound").checked =
+                    localStorage.getItem("muteSound") === "true";
+            }
+        }
+
+        // Save settings to backend AND localStorage
+        document.getElementById("saveSettings").addEventListener("click", async () => {
+            const theme = document.getElementById("theme").value;
+            const settingsData = {
+                theme: theme,
+                language: document.getElementById("language").value,
+                difficulty: document.getElementById("difficulty").value,
+                session_length: parseInt(document.getElementById("sessionLength").value),
+                mute_sound: document.getElementById("muteSound").checked
+            };
+
+            try {
+                // Save to backend
+                const response = await fetch('/save_settings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(settingsData)
+                });
+                
+                const result = await response.json();
+                if (result.status === 'success') {
+                    // Apply theme AFTER successful save
+                    applyTheme(theme);
+                    localStorage.setItem("theme", theme);
+                    localStorage.setItem("language", settingsData.language);
+                    localStorage.setItem("difficulty", settingsData.difficulty);
+                    localStorage.setItem("sessionLength", settingsData.session_length);
+                    localStorage.setItem("muteSound", settingsData.mute_sound);
+                    alert("✅ Settings Saved Successfully!");
+                } else {
+                    alert("❌ Error saving settings: " + result.message);
+                }
+            } catch (error) {
+                alert("❌ Error saving to backend: " + error.message);
+            }
+        });
+
+        // Reset Settings
+        document.getElementById("resetSettings").addEventListener("click", () => {
+            [
+                "userName","userEmail","language","theme",
+                "difficulty","sessionLength","muteSound"
+            ].forEach(key => localStorage.removeItem(key));
+
+            loadSettings();
+            alert("Settings reset to default!");
+        });
+
+        // Load settings on page load
+        window.addEventListener('DOMContentLoaded', loadSettings);
+    </script>
+
+</body>
+</html>
