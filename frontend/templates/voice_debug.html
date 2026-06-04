@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Debug - Available Voices</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .debug-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+        .voice-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #4CAF50;
+            border-radius: 5px;
+        }
+        .hindi { border-left-color: #FF9800; }
+        .marathi { border-left-color: #E91E63; }
+        .english { border-left-color: #2196F3; }
+        .test-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .test-btn:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-container">
+        <h1>🎙️ Available System Voices</h1>
+        <p>This page shows all voices available on your system for Web Speech API</p>
+        
+        <h2>Voice List:</h2>
+        <div id="voiceList"></div>
+        
+        <h2>Test Voice:</h2>
+        <textarea id="testText" placeholder="Enter text to test" style="width: 100%; height: 100px; padding: 10px; border-radius: 5px;">Step 1 is correct! Excellent work!</textarea>
+        <br><br>
+        <select id="voiceSelect" style="padding: 10px; margin-right: 10px; border-radius: 5px;">
+            <option value="">-- Select a voice --</option>
+        </select>
+        <button onclick="testVoice()" class="test-btn">Test Voice</button>
+        <button onclick="stopVoice()" class="test-btn" style="background: #f44336;">Stop</button>
+    </div>
+
+    <script>
+        const voiceList = document.getElementById('voiceList');
+        const voiceSelect = document.getElementById('voiceSelect');
+
+        function populateVoices() {
+            const voices = window.speechSynthesis.getVoices();
+            voiceList.innerHTML = '';
+            voiceSelect.innerHTML = '<option value="">-- Select a voice --</option>';
+
+            console.log("Total voices available:", voices.length);
+
+            voices.forEach((voice, index) => {
+                const div = document.createElement('div');
+                let category = 'english';
+                
+                if (voice.lang.startsWith('hi')) {
+                    category = 'hindi';
+                } else if (voice.lang.startsWith('mr')) {
+                    category = 'marathi';
+                }
+
+                div.className = `voice-item ${category}`;
+                div.innerHTML = `
+                    <strong>${voice.name}</strong> - ${voice.lang}
+                    ${voice.default ? '(Default)' : ''}
+                    <button class="test-btn" onclick="testVoiceById(${index})">Test</button>
+                `;
+                voiceList.appendChild(div);
+
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                voiceSelect.appendChild(option);
+            });
+
+            if (voices.length === 0) {
+                voiceList.innerHTML = '<p style="color: red;">❌ No voices found! This is the problem.</p>';
+            }
+        }
+
+        function testVoiceById(index) {
+            const voices = window.speechSynthesis.getVoices();
+            const voice = voices[index];
+            const text = document.getElementById('testText').value || `Testing ${voice.name}`;
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.voice = voice;
+            utterance.lang = voice.lang;
+            utterance.rate = 0.9;
+            
+            console.log("Testing voice:", voice.name, voice.lang);
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function testVoice() {
+            const selectedIndex = document.getElementById('voiceSelect').value;
+            if (selectedIndex === '') {
+                alert('Please select a voice first');
+                return;
+            }
+            testVoiceById(parseInt(selectedIndex));
+        }
+
+        function stopVoice() {
+            window.speechSynthesis.cancel();
+        }
+
+        // Populate on load
+        window.speechSynthesis.onvoiceschanged = populateVoices;
+        populateVoices();
+
+        // Refresh button
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add a refresh button
+            const btn = document.createElement('button');
+            btn.textContent = '🔄 Refresh Voices';
+            btn.onclick = populateVoices;
+            btn.style.cssText = 'padding: 10px 20px; margin: 20px 0; background: #2196F3; color: white; border: none; border-radius: 5px; cursor: pointer;';
+            document.querySelector('h1').after(btn);
+        });
+    </script>
+</body>
+</html>
