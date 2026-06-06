@@ -1,0 +1,422 @@
+{
+  "English": {
+    "Tree Pose": [
+      "Stand straight on the floor.",
+      "Place that foot on the other leg.",
+      "Join your hands in front of chest.",
+      "Keep your eyes steady."
+    ],
+    "Chair Pose": [
+      "Stand straight on the floor.",
+      "Slowly bend your knees.",
+      "Raise both hands up.",
+      "Sit like on an invisible chair.",
+      "Keep your back straight."
+    ],
+    "Mountain Pose": [
+      "Stand straight on the floor.",
+      "Keep your feet together.",
+      "Keep your hands at your side.",
+      "Lift your chest slightly.",
+      "Look straight ahead."
+    ],
+    "Lotus Pose": [
+      "Sit on the floor.",
+      "Place right foot on left thigh.",
+      "Place left foot on right thigh.",
+      "Keep hands on knees."
+    ],
+    "Cobra Pose": [
+      "Lie on your stomach on the floor.",
+      "Keep your legs straight behind you.",
+      "Place your hands under your shoulders.",
+      "Slowly lift your chest up.",
+      "Do not lift your hips."
+    ],
+    "Warrior I": [
+      "Stand straight first.",
+      "Step one leg forward.",
+      "Bend the front knee.",
+      "Raise both hands up.",
+      "Look towards your hands."
+    ],
+    "Warrior II": [
+      "Stand with legs wide apart.",
+      "Turn one foot forward.",
+      "Bend the front knee.",
+      "Stretch both hands sideways.",
+      "Look at the front hand."
+    ],
+    "Child Pose": [
+      "Sit on your knees on the floor.",
+      "Lower your body forward slowly.",
+      "Touch your forehead to the ground.",
+      "Stretch your hands forward.",
+      "Relax your back and shoulders."
+    ],
+    "Bow Pose": [
+      "Lie on your stomach.",
+      "Bend your knees slowly.",
+      "Hold your ankles with hands.",
+      "Lift your chest up.",
+      "Pull your legs slightly back."
+    ],
+    "Downward Dog": [
+      "Stand on your hands and knees.",
+      "Lift your hips up.",
+      "Make your body like a mountain.",
+      "Keep your hands and legs straight.",
+      "Press your heels down."
+    ],
+    "Bridge Pose": [
+      "Lie on your back on the floor.",
+      "Bend your knees and keep feet on floor.",
+      "Keep hands beside your body.",
+      "Lift your hips slowly.",
+      "Keep your shoulders on the floor."
+    ],
+    "Plank Pose": [
+      "Lie on your stomach first.",
+      "Place your hands under shoulders.",
+      "Lift your whole body up.",
+      "Keep your body straight.",
+      "Do not bend your waist."
+    ],
+    "Cat Cow": [
+      "Come on hands and knees.",
+      "Lift your head and back up.",
+      "Bend your head and back down.",
+      "Move slowly between positions."
+    ],
+    "Seated Forward Bend": [
+      "Sit with legs straight.",
+      "Lift both hands up.",
+      "Bend forward slowly.",
+      "Try to touch your legs.",
+      "Do not bend knees."
+    ],
+    "Triangle Pose": [
+      "Stand with legs wide apart.",
+      "Turn one foot outward.",
+      "Stretch both hands sideways.",
+      "Bend to the side slowly.",
+      "Touch your leg or knee."
+    ],
+    "Boat Pose": [
+      "Sit on the floor.",
+      "Lift both legs up slowly.",
+      "Lift your hands forward.",
+      "Keep your back straight.",
+      "Balance your body."
+    ],
+    "Corpse Pose": [
+      "Lie flat on your back.",
+      "Keep your legs relaxed.",
+      "Keep your hands relaxed.",
+      "Close your eyes gently."
+    ],
+    "Hero Pose": [
+      "Kneel down on the floor.",
+      "Sit between your heels.",
+      "Keep your back straight.",
+      "Place hands on thighs."
+    ],
+     "Warrior III": [
+      "Stand straight with feet hip-width apart and arms by your sides.",
+      "Shift your weight onto your left foot.",
+      "Slowly lift your right leg backward.",
+      "Lean your upper body forward, keeping your torso parallel to the floor.",
+      "Extend both arms straight forward in line with your ears.",
+      "Keep your back straight and core engaged.",
+      "Balance on one leg and breathe steadily."
+    ],
+    "Reverse Warrior": [
+      "Stand with legs wide.",
+      "Bend the front knee.",
+      "Lift one hand up.",
+      "Lean your body slightly back.",
+      "Keep the other hand on leg."
+    ]
+  },
+  "Hindi": {
+    "Tree Pose": [
+      "जमीन पर सीधे खड़े हों।",
+      "एक पैर धीरे से उठाएं।",
+      "उस पैर को दूसरे पैर पर रखें।",
+      "हाथ सामने जोड़ें।",
+      "आँखें एक जगह टिकाएं।"
+    ],
+    "Chair Pose": [
+      "जमीन पर सीधे खड़े हों।",
+      "घुटनों को धीरे मोड़ें।",
+      "दोनों हाथ ऊपर उठाएं।",
+      "कुर्सी जैसी स्थिति में बैठें।",
+      "पीठ सीधी रखें।"
+    ],
+    "Mountain Pose": [
+      "जमीन पर सीधे खड़े हों।",
+      "पैरों को साथ रखें।",
+      "हाथ शरीर के पास रखें।",
+      "छाती को थोड़ा ऊपर उठाएं।",
+      "सीधे सामने देखें।"
+    ],
+    "Warrior III": [
+      "सीधे खड़े हो जाएँ, पैर कंधों की चौड़ाई में रखें और हाथ बगल में रखें।",
+      "अपना वजन बाएँ पैर पर डालें।",
+      "धीरे-धीरे दाएँ पैर को पीछे की ओर उठाएँ।",
+      "ऊपरी शरीर को आगे की ओर झुकाएँ और शरीर को ज़मीन के समानांतर रखें।",
+      "दोनों हाथों को कानों के पास सीधा आगे की ओर फैलाएँ।",
+      "पीठ सीधी रखें और पेट की मांसपेशियों को सक्रिय रखें।",
+      "एक पैर पर संतुलन बनाए रखें और सामान्य रूप से सांस लें।"
+    ],
+    "Lotus Pose": [
+      "जमीन पर बैठें।",
+      "दायां पैर बाईं जांघ पर रखें।",
+      "बायां पैर दाईं जांघ पर रखें।",
+      "हाथ घुटनों पर रखें।"
+    ],
+    "Cobra Pose": [
+      "पेट के बल जमीन पर लेटें।",
+      "पैरों को पीछे सीधा रखें।",
+      "हाथ कंधों के नीचे रखें।",
+      "छाती को धीरे ऊपर उठाएं।",
+      "कूल्हों को जमीन पर रखें।"
+    ],
+    "Warrior I": [
+      "सीधे खड़े हों।",
+      "एक पैर आगे बढ़ाएं।",
+      "सामने वाले घुटने को मोड़ें।",
+      "दोनों हाथ ऊपर उठाएं।",
+      "हाथों की ओर देखें।"
+    ],
+    "Warrior II": [
+      "पैरों को चौड़ा फैलाएं।",
+      "एक पैर आगे की ओर मोड़ें।",
+      "सामने वाले घुटने को मोड़ें।",
+      "दोनों हाथ बगल में फैलाएं।",
+      "सामने वाले हाथ की ओर देखें।"
+    ],
+    "Child Pose": [
+      "घुटनों के बल जमीन पर बैठें।",
+      "शरीर को आगे झुकाएं।",
+      "माथा जमीन से लगाएं।",
+      "हाथ आगे फैलाएं।",
+      "पीठ और कंधों को ढीला छोड़ें।"
+    ],
+    "Bow Pose": [
+      "पेट के बल जमीन पर लेटें।",
+      "घुटनों को धीरे मोड़ें।",
+      "हाथों से टखनों को पकड़ें।",
+      "छाती को ऊपर उठाएं।",
+      "पैरों को थोड़ा पीछे खींचें।"
+    ],
+    "Downward Dog": [
+      "हाथों और घुटनों के बल आएं।",
+      "कूल्हों को ऊपर उठाएं।",
+      "शरीर को पहाड़ जैसी आकृति में रखें।",
+      "हाथ और पैर सीधे रखें।",
+      "एड़ियों को नीचे दबाएं।"
+    ],
+    "Bridge Pose": [
+      "पीठ के बल जमीन पर लेटें।",
+      "घुटनों को मोड़ें और पैर जमीन पर रखें।",
+      "हाथ शरीर के पास रखें।",
+      "कूल्हों को ऊपर उठाएं।",
+      "कंधों को जमीन पर रखें।"
+    ],
+    "Plank Pose": [
+      "पेट के बल लेटें।",
+      "हाथ कंधों के नीचे रखें।",
+      "पूरा शरीर ऊपर उठाएं।",
+      "शरीर को सीधा रखें।",
+      "कमर न मोड़ें।"
+    ],
+    "Cat Cow": [
+      "हाथों और घुटनों के बल आएं।",
+      "सिर और पीठ ऊपर उठाएं।",
+      "सिर और पीठ नीचे झुकाएं।",
+      "धीरे-धीरे ऊपर नीचे करें।"
+    ],
+    "Seated Forward Bend": [
+      "पैर सीधे करके बैठें।",
+      "दोनों हाथ ऊपर उठाएं।",
+      "धीरे आगे झुकें।",
+      "पैरों को छूने की कोशिश करें।",
+      "घुटनों को न मोड़ें।"
+    ],
+    "Triangle Pose": [
+      "पैरों को चौड़ा फैलाएं।",
+      "एक पैर बाहर की ओर मोड़ें।",
+      "दोनों हाथ बगल में फैलाएं।",
+      "धीरे साइड में झुकें।",
+      "पैर या घुटने को छुएं।"
+    ],
+    "Boat Pose": [
+      "जमीन पर बैठें।",
+      "दोनों पैर ऊपर उठाएं।",
+      "हाथ सामने उठाएं।",
+      "पीठ सीधी रखें।",
+      "शरीर को संतुलित रखें।"
+    ],
+    "Corpse Pose": [
+      "पीठ के बल लेटें।",
+      "पैरों को ढीला छोड़ें।",
+      "हाथों को ढीला छोड़ें।",
+      "आंखें धीरे बंद करें।"
+    ],
+    "Hero Pose": [
+      "घुटनों के बल बैठें।",
+      "एड़ियों के बीच बैठें।",
+      "पीठ सीधी रखें।",
+      "हाथ जांघों पर रखें।"
+    ],
+    "Reverse Warrior": [
+      "पैरों को चौड़ा रखें।",
+      "सामने वाले घुटने को मोड़ें।",
+      "एक हाथ ऊपर उठाएं।",
+      "शरीर को थोड़ा पीछे झुकाएं।",
+      "दूसरा हाथ पैर पर रखें।"
+    ]
+  },
+  "Marathi": {
+    "Tree Pose": [
+      "जमिनीवर सरळ उभे रहा.",
+      "एक पाय हळू उचला.",
+      "तो पाय दुसऱ्या पायावर ठेवा.",
+      "हात समोर जोडून ठेवा.",
+      "डोळे एका ठिकाणी ठेवा."
+    ],
+    "Chair Pose": [
+      "जमिनीवर सरळ उभे रहा.",
+      "हळूहळू गुडघे वाका.",
+      "दोन्ही हात वर उचला.",
+      "खुर्चीवर बसल्यासारखी स्थिती ठेवा.",
+      "पाठ सरळ ठेवा."
+    ],
+    "Mountain Pose": [
+      "जमिनीवर सरळ उभे रहा.",
+      "पाय एकत्र ठेवा.",
+      "हात शरीराच्या बाजूला ठेवा.",
+      "छाती थोडी वर उचला.",
+      "समोर सरळ पाहा."
+    ],
+    "Lotus Pose": [
+      "जमिनीवर बसा.",
+      "उजवा पाय डाव्या मांडीवर ठेवा.",
+      "डावा पाय उजव्या मांडीवर ठेवा.",
+      "हात गुडघ्यांवर ठेवा."
+    ],
+
+    "Warrior III":  [
+      "सरळ उभे रहा, पाय खांद्याच्या रुंदीवर ठेवा आणि हात बाजूला ठेवा.",
+      "तुमचे वजन डाव्या पायावर टाका.",
+      "हळूहळू उजवा पाय मागे उचला.",
+      "वरचा भाग पुढे झुकवा आणि शरीर जमिनीच्या समांतर ठेवा.",
+      "दोन्ही हात कानांच्या रेषेत सरळ पुढे पसरवा.",
+      "पाठ सरळ ठेवा आणि पोटाचे स्नायू घट्ट ठेवा.",
+      "एका पायावर संतुलन ठेवा आणि शांतपणे श्वास घ्या."
+    ],
+    "Cobra Pose": [
+      "पोटावर जमिनीवर झोपा.",
+      "पाय मागे सरळ ठेवा.",
+      "हात खांद्याखाली ठेवा.",
+      "छाती हळू वर उचला.",
+      "कंबर जमिनीवर ठेवा."
+    ],
+    "Warrior I": [
+      "सरळ उभे रहा.",
+      "एक पाय पुढे टाका.",
+      "समोरचा गुडघा वाका.",
+      "दोन्ही हात वर उचला.",
+      "हातांकडे पाहा."
+    ],
+    "Warrior II": [
+      "पाय रुंद पसरून उभे रहा.",
+      "एक पाय पुढे वळवा.",
+      "समोरचा गुडघा वाका.",
+      "दोन्ही हात बाजूला पसरवा.",
+      "समोरच्या हाताकडे पाहा."
+    ],
+    "Child Pose": [
+      "गुडघ्यांवर बसून जमिनीवर या.",
+      "शरीर पुढे झुकवा.",
+      "कपाळ जमिनीला लावा.",
+      "हात पुढे पसरवा.",
+      "पाठ आणि खांदे सैल ठेवा."
+    ],
+    "Bow Pose": [
+      "पोटावर जमिनीवर झोपा.",
+      "गुडघे हळू वाका.",
+      "हातांनी टाच पकडा.",
+      "छाती वर उचला.",
+      "पाय थोडे मागे ओढा."
+    ],
+    "Downward Dog": [
+      "हात व गुडघ्यांवर या.",
+      "कंबर वर उचला.",
+      "शरीर डोंगरासारखे ठेवा.",
+      "हात व पाय सरळ ठेवा.",
+      "टाचा खाली दाबा."
+    ],
+    "Bridge Pose": [
+      "पाठिवर जमिनीवर झोपा.",
+      "गुडघे वाकवून पाय जमिनीवर ठेवा.",
+      "हात शरीराच्या बाजूला ठेवा.",
+      "कंबर वर उचला.",
+      "खांदे जमिनीवर ठेवा."
+    ],
+    "Plank Pose": [
+      "पोटावर झोपा.",
+      "हात खांद्याखाली ठेवा.",
+      "संपूर्ण शरीर वर उचला.",
+      "शरीर सरळ ठेवा.",
+      "कंबर वाकवू नका."
+    ],
+    "Cat Cow": [
+      "हात व गुडघ्यांवर या.",
+      "डोके व पाठ वर उचला.",
+      "डोके व पाठ खाली वाका.",
+      "हळूहळू हालचाल करा."
+    ],
+    "Seated Forward Bend": [
+      "पाय सरळ करून बसा.",
+      "दोन्ही हात वर उचला.",
+      "हळू पुढे वाका.",
+      "पायांना स्पर्श करण्याचा प्रयत्न करा.",
+      "गुडघे वाकवू नका."
+    ],
+    "Triangle Pose": [
+      "पाय रुंद पसरून उभे रहा.",
+      "एक पाय बाहेर वळवा.",
+      "दोन्ही हात बाजूला पसरवा.",
+      "हळू बाजूला वाका.",
+      "पाय किंवा गुडघ्याला स्पर्श करा."
+    ],
+    "Boat Pose": [
+      "जमिनीवर बसा.",
+      "दोन्ही पाय वर उचला.",
+      "हात समोर उचला.",
+      "पाठ सरळ ठेवा.",
+      "शरीर संतुलित ठेवा."
+    ],
+    "Corpse Pose": [
+      "पाठिवर झोपा.",
+      "पाय सैल सोडा.",
+      "हात सैल सोडा.",
+      "डोळे अलगद बंद करा."
+    ],
+    "Hero Pose": [
+      "गुडघ्यांवर बसा.",
+      "टाचांमध्ये बसा.",
+      "पाठ सरळ ठेवा.",
+      "हात मांडीवर ठेवा."
+    ],
+    "Reverse Warrior": [
+      "पाय रुंद ठेवा.",
+      "समोरचा गुडघा वाका.",
+      "एक हात वर उचला.",
+      "शरीर थोडे मागे वाका.",
+      "दुसरा हात पायावर ठेवा."
+    ]
+  }
+}
