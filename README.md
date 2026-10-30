@@ -7,7 +7,7 @@ A full-stack web application for real-time yoga pose detection, practice trackin
 ✅ **User Authentication** - Signup, login, session management  
 ✅ **AI Pose Detection** - Real-time pose checking via MoveNet Thunder model  
 ✅ **22 Yoga Poses** - Lotus, Warrior I/II/III, Mountain, Tree, Bridge, Plank, Downward Dog, etc.  
-✅ **Multi-Language Support** - English, Hindi, Marathi, Kannada with Web Speech API voice guidance  
+✅ **Multi-Language Support** - English, Hindi, Marathi, Kannada (total 30+ languages) with Web Speech API voice guidance  
 ✅ **Practice Mode** - Live webcam, step-by-step instructions, accuracy feedback  
 ✅ **Dashboard Analytics** - Streak tracking, session history, accuracy metrics  
 ✅ **Settings & Preferences** - Dark mode, language selection, difficulty levels  
